@@ -1,7 +1,12 @@
-Estonia
-	Can get minutes further back, just need to iterate page number
-	- http://stenogrammid.riigikogu.ee/et?page=150 (up to 157)
-Latvia
-	Looks like minutes and bills go to '93 (don't know if roll-call results are available or distinguishable from that data)
-	- Minutes/agenda to 5th: https://saeima.lv/lv/likumdosana/saeimas-sedes/saeimas-sezu-stenogrammas/5-saeimas-sezu-stenogrammas/
-	- Votes until 5th: https://titania.saeima.lv/LIVS13/saeimalivs13.nsf/webAll?OpenView
+- Estonia
+	- Can get minutes further back, just need to iterate page number
+		- http://stenogrammid.riigikogu.ee/et?page=150 (up to 157)
+- Latvia
+	- Looks like minutes and bills go to '93 (don't know if roll-call results are available or distinguishable from that data)
+		- Minutes/agenda to 5th: https://saeima.lv/lv/likumdosana/saeimas-sedes/saeimas-sezu-stenogrammas/5-saeimas-sezu-stenogrammas/
+		- Votes until 5th: https://titania.saeima.lv/LIVS13/saeimalivs13.nsf/webAll?OpenView
+
+
+- Slovakia
+	- Yes, we should be able to automatically get files
+	- Minutes are in the agenda, but those exist as well as the debate transcripts
