@@ -24,10 +24,10 @@ pkgTest <- function(pkg){
   if (length(new.pkg)) 
     install.packages(new.pkg, dependencies = TRUE)
   sapply(pkg, require, character.only = TRUE)
-  sink()
 }
 
 lapply(c("stringr", "dplyr", "plyr", "tidyverse", "rvest", "zoo"), pkgTest)
+
 
 #################################
 # function to parse HTML
