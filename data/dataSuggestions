@@ -1,0 +1,35 @@
+- Estonia
+	- Can get minutes further back, just need to iterate page number
+		- http://stenogrammid.riigikogu.ee/et?page=150 (up to 157)
+- Latvia
+	- Looks like minutes and bills go to '93 (don't know if roll-call results are available or distinguishable from that data)
+		- Minutes/agenda to 5th: https://saeima.lv/lv/likumdosana/saeimas-sedes/saeimas-sezu-stenogrammas/5-saeimas-sezu-stenogrammas/
+		- Votes until 5th: https://titania.saeima.lv/LIVS13/saeimalivs13.nsf/webAll?OpenView
+
+
+- Slovakia
+	- Yes, we should be able to automatically get files
+	- Minutes are in the agenda, but those exist as well as the debate transcripts
+
+- Poland (Upper)
+	- Attendance: I think we can also treat the roll-call votes as attendance since it doesn't seem like attendance is report in the minutes, debates, or transcripts (see rules of procedure article 22, "The presence of a Senator at a sitting of the Senate is
+also confirmed by printouts of participation in votes.")
+	- Roll-call votes definitely exist. That's what those publicized votes are (ex. https://www.senat.gov.pl/prace/senat/posiedzenia/przebieg,530,1,glosowania.html). Seems to be initiated by either 20 members or President (president seems to call it mostly using "proszę o podanie wyników")
+
+- Poland (Lower)
+	- Let's talk about "roll call voting" in class
+
+- Slovenia (Upper)
+	- No be “roll call” voting if the electronic voting isn’t publicly recorded?  
+	- Ex from 21st session (http://www.ds-rs.si/?q=21-seja-drzavnega-sveta-republike-slovenije), there isn’t any mention of voting in each of the initiatives, questions, or proposals (it just says that the matter was either passed or rejected). 
+	- However, when you look at the minutes (you can translate this .pdf http://www.ds-rs.si/sites/default/files/dokumenti/20_seja_ds_zapisnik_n_lekt_p.pdf), you can see that there are reports of how the votes broke down (33 for, 3 against, etc.). 
+	- Seems like the closest we can get to a record of votes, so I think the default procedure, although it’s “public” and “electronic” is actually an indication vote. 
+	- Does it really only go back to 2012? I can find minutes to '02, maybe '92 (which would make sense): http://www.arhiv.ds-rs.si./index93f0.html?q=dejavnost/seje&CategoryID=87
+
+
+- Bulgaria
+	- Reporting of roll-calls: seems like it's included in the transcript; transcripts go back to the 1911 and even '50s (start of the National Assembly)
+		- Begs questions, when do roll-calls come into existence?
+
+- Italy ()
+	- Can get minutes until 1948?
