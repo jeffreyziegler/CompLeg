@@ -91,9 +91,9 @@ parse_HTML <- function(file) {
   return(out)
 }
 
-##################################################
+#####################
 # read in data
-##################################################
+#####################
 
 # file names
 files <- list.files(pattern="*.html", full.names=TRUE, recursive=FALSE)
