@@ -81,7 +81,7 @@ canada_constituencies_updated$observation_path <- paste(canada_constituencies_up
 #######################
 
 # change column names
-colnames(df) <- c("honorific_title","first_name","last_name","constituency_name","province_name","political_affiliation","start_date","end_date","parliament_number")
+colnames(df) <- c("honorific_title","first_name","last_name","constituency_name","province_name","party_name","start_date","end_date","parliament_number")
 
 # drop all the empty rows and set full name
 df<-df[!is.na(df$first_name),]
@@ -89,13 +89,21 @@ df$full_name <- paste(df$first_name, df$last_name, sep=" ")
 
 # set start and end date to date format
 df_a <- df %>% 
-  separate(start_date, c("month", "day","year",NA), sep = "/| ") %>%
+  separate(start_date, c("month", "day","year",NA), sep = "/| |-") %>%
   separate(parliament_number, c(NA,"parliament_number"), sep="l") 
+df_a$temp <- df_a$month
+df_a$month[df_a$parliament_number==42] <- df_a$day[df_a$parliament_number==42]
+df_a$day[df_a$parliament_number==42] <- df_a$year[df_a$parliament_number==42]
+df_a$year[df_a$parliament_number==42] <- df_a$temp[df_a$parliament_number==42]
 df_a$start_date <- as.Date(paste(df_a$year,df_a$month,df_a$day,sep="-"))
 df_b <- df_a %>%
-  separate(end_date, c("month", "day","year",NA), sep = "/| ")
+  separate(end_date, c("month", "day","year",NA), sep = "/| |-")
+df_b$temp <- df_b$month
+df_b$month[df_b$parliament_number==42] <- df_b$day[df_b$parliament_number==42]
+df_b$day[df_b$parliament_number==42] <- df_b$year[df_b$parliament_number==42]
+df_b$year[df_b$parliament_number==42] <- df_b$temp[df_b$parliament_number==42]
 df_b$end_date <- as.Date(paste(df_b$year,df_b$month,df_b$day,sep="-"))
-df_b$end_date[is.na(df_b$end_date)] <- as.Date("2019-09-11")
+df_b$end_date[is.na(df_b$end_date)] <- as.Date("9999-01-01")
 
 # merge with constituency
 df_c <- merge(x=df_b,y=canada_constituencies_updated,by="constituency_name",all.x=TRUE) %>%
@@ -110,7 +118,8 @@ df_c <- merge(x=df_b,y=canada_constituencies_updated,by="constituency_name",all.
          constituency_name,
          constituency_path,
          start_date,
-         end_date) %>%
+         end_date,
+         party_name) %>%
   distinct()
 
 # select the correct start and end date
@@ -123,6 +132,7 @@ df_e <- df_c %>%
   slice(which.max(end_date)) %>%
   distinct()
 df_e$start_date <- df_d$start_date
+df_e$end_date[df_e$end_date=="9999-01-01"] <- NA
 
 # sort member by last name, first name, and constituency name
 df_g <- df_e[order(df_e$last_name,df_e$first_name,df_e$constituency_name),]
@@ -133,9 +143,7 @@ df_g$member_path <- paste(df_g$chamber_path,"/member-",df_g$member_number,sep=""
 df_g$observation_path <- paste(df_g$chamber_path,"/member-",df_g$member_number,sep="") 
 colnames(df_g)[which(names(df_g) == "constituency_path")] <- "constituency_ID"
 df_g$observation_number <- rownames(df_g)
-df_g$party_name <- NA
 
-########### missing party name!! #################
 ################ Is constituency_ID the same as constituency_path?
 ##################################################
 
@@ -155,25 +163,12 @@ canada_members_updated <- df_g[c("observation_path",
                                  "start_date",
                                  "end_date")]
 
+setwd('~/Documents/GitHub/CompLegFall2019/data/canadaTextParsing/')
+write.csv(canada_members_updated, file = "canada_members_updated.csv")
+
 #######################
 # membership
 #######################
 
-# TODO: raw data
-df_aa <- merge(x=df_b,y=canada_members_updated ,by="full_name",all.x=TRUE) %>%
-  select(observation_path,
-         parliament_number,
-         chamber_path,
-         observation_number,
-         parliament_number,
-         chamber_number,
-         chamber_name,
-         full_name,
-         first_name.x,
-         last_name.x,
-         constituency_name,
-         constituency_path,
-         start_date,
-         end_date) %>%
-  distinct()
+
   
