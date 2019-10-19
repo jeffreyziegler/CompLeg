@@ -6,6 +6,10 @@ parliament <- 42
 session <- 1
 sittings <- 438
 
+###################################
+# read in useful data in iteration
+###################################
+
 #####################
 # download html files
 #####################
