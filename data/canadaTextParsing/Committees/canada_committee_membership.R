@@ -49,7 +49,7 @@ number <- paste("/Members?parl=",pn,"&session=",sn,"&membershipOn=", sep="")
 for(i in 1:x){
   url <- paste("https://www.ourcommons.ca/Committees/en/", acronym[i], number[i], "#committeeMembersPanel", sep="")
   file <- paste(acronym[i], "_", pn[i], "_", sn[i], "_", dc[i], ".html", sep="")
-  download.file(url, file, quiet = TRUE)
+  # download.file(url, file, quiet = TRUE)
 }
 
 #######################
@@ -68,10 +68,27 @@ parse_HTML <- function(file) {
     html_nodes(".title,.first-name") %>% 
     html_text()
   
-  x <- which(raw=="Chair")
-  y <- which(raw=="Vice-Chairs")
-  z <- which(raw=="Members")
-  k <- length(raw)
+  # check 
+  if(length(raw) == 0) {
+    return(NULL)
+  }
+  
+  x <- as.numeric(which(raw=="Chair"))
+  y <- as.numeric(which(raw=="Vice-Chairs" | raw=="Vice-Chair"))
+  z <- as.numeric(which(raw=="Members"))
+  k <- as.numeric(length(raw))
+  if (is_empty(x)) { 
+    x <- 0 
+  }
+  if (is_empty(y)) { 
+    y <- 0 
+  }
+  if (is_empty(z)) { 
+    z <- 0 
+  }
+  if (is_empty(k)) { 
+    k <- 0 
+  }
   
   title <- "Initiate"
   title[c(x:(y-1))] <- "Chair"
@@ -100,11 +117,6 @@ parse_HTML <- function(file) {
   full_name <- paste(first_name, last_name, sep=" ") %>%
     unique()
   
-  # check 
-  if(length(full_name) == 0) {
-    return(NULL)
-  }
-  
   # return the dataframe
   out <- data.frame(committee_acronym = info[3],
                     parliament_number = info[4],
@@ -128,10 +140,15 @@ files <- list.files(pattern="*.html", full.names=TRUE, recursive=FALSE)
 out <- alply(.data = files, .margins = 1, .fun = parse_HTML, .progress = "text", .inform = TRUE)
 # stack data frames
 df <- do.call("rbind", out)
+raw_canada_committee_membership <- df
+
+setwd('~/Documents/GitHub/CompLegFall2019/data/canadaTextParsing/Committees')
+write.csv(raw_canada_committee_membership, "raw_canada_committee_membership.csv")
+
 
 ###########
 # clean 
-###########s
+###########
   
 
 
