@@ -47,7 +47,7 @@ sn <- df$session_number
 number <- paste("/Members?parl=",pn,"&session=",sn,"&membershipOn=", sep="")
 
 for(i in 1:x){
-  url <- paste("https://www.ourcommons.ca/Committees/en/", acronym[i], dc[i], "#committeeMembersPanel", sep="")
+  url <- paste("https://www.ourcommons.ca/Committees/en/", acronym[i], number[i], "#committeeMembersPanel", sep="")
   file <- paste(acronym[i], "_", pn[i], "_", sn[i], "_", dc[i], ".html", sep="")
   download.file(url, file, quiet = TRUE)
 }
@@ -63,7 +63,7 @@ parse_HTML <- function(file) {
   # read html
   html <- read_html(file)
   
-  # full_name, last_name, first_name
+  # full_name, last_name, first_name, and title
   raw <- html %>%
     html_nodes(".title,.first-name") %>% 
     html_text()
@@ -78,6 +78,17 @@ parse_HTML <- function(file) {
   title[c(y:(z-1))] <- "Co-chair"
   title[c(z:k)] <- "Member"
   
+  # title <- "Initiate"
+  # if(x!=(y-1)) {
+  #   title[c(x:(y-1))] <- "Chair"
+  # }
+  # if(y!=(z-1)){
+  #   title[c(y:(z-1))] <- "Co-chair"
+  # }
+  # if(z!=k){
+  #   title[c(z:k)] <- "Member"
+  # }
+
   first_name <- raw[-c(x,y,z)][c(TRUE,FALSE)]
   title <- title[-c(x,y,z)][c(TRUE,FALSE)]
   
