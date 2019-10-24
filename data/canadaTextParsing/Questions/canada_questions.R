@@ -30,7 +30,4 @@ for(i in 1:sittings) {
   
   # random delay
   Sys.sleep(runif(1, 0, 0.25))
-  
-  # update progress bar
-  setTxtProgressBar(pb, i)
 }
