@@ -1,0 +1,1919 @@
+%--------------------------------------------------%
+% bills
+%--------------------------------------------------%
+
+\heading{Bills}{uk_bills.csv}{1.4 MB}
+
+This dataset includes all bills introduced from the XXth Parliament through the XXth Parliament. There is one observation per bill.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/session-2/chamber-1/bill-1}{bill_ID}
+
+\pathentry{parliament_path}{parliament}{/parliament-41}
+
+\pathentry{session_path}{session}{/parliament-41/session-2}
+
+\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+
+\pathentry{bill_path}{bill}{/parliament-41/session-2/chamber-1/bill-1}
+
+\myline
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{bill_number}}
+
+\parliamentnumber
+
+\sessionnumber
+
+\chambernumber
+
+\billnumber
+
+\myline
+
+\subheading{Variables}
+
+\entry{date_introduced}{The date the bill was introduced in the format \code{YYYY-MM-DD}.}
+
+\entry{bill_type}{The type of the bill. Possible values include: 
+	\begin{itemize}
+		\+{Government Bill (Commons)}
+		\+{Private Members' Bill (Commons)}
+		\+{Government Bill (Lords)}
+		\+{Private Members' Bill (Lords)}
+		\+{Private Bill (Lords)}
+\end{itemize}}
+
+\entry{bill_title}{The official title of the bill.}
+
+\membername{ who sponsored the bill}
+
+\memberid
+
+\constituencyname{ who sponsored the bill}
+
+\constituencyid
+
+\myline
+
+%--------------------------------------------------%
+% bills - events
+%--------------------------------------------------%
+
+\heading{Bill Events}{uk_bill_events.csv}{7.8 MB}
+
+This dataset includes all events related to all bills from the 38th Parliament through the 41st Parliament. There is one observation per event per bill.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/session-2/chamber-1/bill-1/event-1}{event_path}
+
+\pathentry{parliament_path}{parliament}{/parliament-41/session-2/chamber-1/bill-1/event-1}
+
+\pathentry{session_path}{session}{/parliament-41/session-2/chamber-1/bill-1/event-1}
+
+\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1/bill-1/event-1}
+
+\pathentry{bill_path}{bill}{/parliament-41/session-2/chamber-1/bill-1/event-1}
+
+\pathentry{event_path}{event}{/parliament-41/session-2/chamber-1/bill-1/event-1}
+
+\myline
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{bill_number}, then by \code{event_number}}
+
+\parliamentnumber
+
+\sessionnumber
+
+\chambernumber
+
+\billnumber
+
+\eventnumber
+
+\myline
+
+\subheading{Variables}
+
+\membername{ who sponsored the bill}
+
+\memberid
+
+\constituencyname{ who sponsored the bill}
+
+\constituencyid
+
+\entry{event_date}{The date of the event in the format \code{YYYY-MM-DD}.}
+
+\entry{event_chamber}{The chamber in which the event took place. Possible values include:
+	\begin{itemize}
+		\+{House of Commons}
+		\+{House of Lords}
+\end{itemize}}
+
+\newpage
+
+\entry{event_description}{A description of the event.}
+
+\myline
+
+
+%--------------------------------------------------%
+% bills - versions
+%--------------------------------------------------%
+
+\heading{Bill Versions}{uk_bill_versions.csv}{2.5 MB}
+
+This dataset includes all published versions of all bills introduced from the 38th Parliament through the 41st Parliament. There is one observation per version per bill.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/session-2/chamber-1/bill-1/version-1}{version_path}
+
+\pathentry{parliament_path}{parliament}{/parliament-41}
+
+\pathentry{session_path}{session}{/parliament-41/session-2}
+
+\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+
+\pathentry{bill_path}{bill}{/parliament-41/session-2/chamber-1/bill-1}
+
+\pathentry{version_path}{version}{/parliament-41/session-2/chamber-1/bill-1/version-1}
+
+\myline
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{bill_number}}
+
+\parliamentnumber
+
+\sessionnumber
+
+\chambernumber
+
+\billnumber
+
+\versionnumber
+
+\myline
+
+\subheading{Variables}
+
+\entry{date_introduced}{The date the bill was introduced in the format \code{YYYY-MM-DD}.}
+
+\entry{date_version}{The date of the version of the bill in the format \code{YYYY-MM-DD}.}
+
+\entry{bill_type}{The type of the bill. Possible values include:
+	\begin{itemize}
+		\+{Government Bill (Commons)}
+		\+{Private Members' Bill (Commons)}
+		\+{Government Bill (Lords)}
+		\+{Private Members' Bill (Lords)}
+		\+{Private Bill (Lords)}
+\end{itemize}}
+
+\entry{bill_title}{The official title of the bill.}
+
+\entry{version}{The version of the bill. Possible values include:
+	\begin{itemize}
+		\+{As amended by committee}
+		\+{As passed by the House of Commons}
+		\+{As passed by the House of Lords}
+		\+{First Reading}
+		\+{Royal Assent}
+\end{itemize}}
+
+\myline
+
+%%--------------------------------------------------%
+%% chamber membership
+%%--------------------------------------------------%
+
+\heading{Chamber Membership}{canada_chamber_membership.csv}{0 MB}
+
+This dataset indicates the members of the House of Commons in each parliament from the 38th parliament through the 41st parliament. There is one observation per member per parliament.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/chamber-1/member-1}{member_ID}
+
+\pathentry{parliament_path}{parliament}{/parliament-41}
+
+\pathentry{chamber_path}{chamber per parliament}{/parliament-41/chamber-1}
+
+\pathentry{member_path}{member per chamber per parliament}{/parliament-41/chamber-1/member-1}
+
+\myline
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{parliament_number}, then by \code{chamber_number}, then by \code{member_number}}
+
+\parliamentnumber
+
+\chambernumber
+
+\newpage
+
+\membernumber
+
+\myline
+
+\subheading{Variables}
+
+\entry{chamber_name}{The name of the chamber.}
+
+\entry{full_name}{The first and last name of the member.}
+
+\entry{first_name}{The first name of the member.}
+
+\entry{last_name}{The last name of the member.}
+
+\memberid
+
+\constituencyname{}
+
+\constituencyid
+
+\entry{party_name}{The party of the member. Members sometimes switch parties while in office. This variable indicates their party at the time they were originally elected. Possible values include:
+%	\begin{itemize}
+%		\+{Bloc Québécois}
+%		\+{Conservative Party of Canada}
+%		\+{Forces et Démocratie}
+%		\+{Green Party of Canada}
+%		\+{Independent}
+%		\+{Liberal Party of Canada}
+%		\+{New Democratic Party}
+%\end{itemize}
+}
+
+\entry{start_date}{The start date for each member in each parliament in the format \code{YYYY-MM-DD}. The start date of the parliament unless the member was elected in a by-election.}
+
+\entry{end_date}{The end date for each member in each parliament in the format \code{YYYY-MM-DD}. The end date of the parliament unless the member died in office or resigned.}
+
+\myline
+
+%--------------------------------------------------%
+% chamber sittings
+%--------------------------------------------------%
+
+\heading{Chamber Sittings}{uk_chamber_sittings.csv}{0 MB}
+
+This dataset includes all sittings of the House of Commons from the 38th Parliament through the 41st Parliament. There is one observation per sitting.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/session-2/chamber-1/sitting-1}{sitting_path}
+
+\pathentry{parliament_path}{parliament}{/parliament-41}
+
+\pathentry{session_path}{session}{/parliament-41/session-2}
+
+\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+
+\pathentry{sitting_path}{sitting}{/parliament-41/session-2/chamber-1/sitting-1}
+
+\myline
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{sitting_number}}
+
+\parliamentnumber
+
+\sessionnumber
+
+\chambernumber
+
+\sittingnumber
+
+\subheading{Variables}
+
+\entry{chamber}{The chamber of the sitting. Possible values include:
+	\begin{itemize}
+		\+{House of Commons}
+		\+{House of Lords}
+\end{itemize}}
+
+\entry{sitting_date}{The date of the sitting in the format \code{YYYY-MM-DD}.}
+
+\myline
+
+%--------------------------------------------------%
+% committee sittings
+%--------------------------------------------------%
+
+%\heading{Committee Sittings}{canada_committee_sittings.csv}{0 MB}
+%
+%This dataset includes all sittings of all committees in the House of Commons from the 38th Parliament through the 41st Parliament. There is one observation per sitting.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/session-2/chamber-1/sitting-1}{sitting_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{session_path}{session}{/parliament-41/session-2}
+%
+%\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+%
+%\pathentry{committee_path}{committee}{/parliament-41/session-2/chamber-1/committee-1/}
+%
+%\pathentry{sitting_path}{sitting}{/parliament-41/session-2/chamber-1/committee-1/sitting-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{sitting_number}}
+%
+%\parliamentnumber
+%
+%\sessionnumber
+%
+%\chambernumber
+%
+%\committeenumber
+%
+%\committeesittingnumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{chamber_name}{The chamber of the sitting. Possible values include:
+%	\begin{itemize}
+%		\+{House of Commons}
+%		\+{Lords}
+%\end{itemize}}
+%
+%\committeename
+%
+%\committeeacronym
+%
+%\committeeid
+%
+%\entry{sitting_date}{The date of the sitting in the format \code{YYYY-MM-DD}.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% committees
+%%--------------------------------------------------%
+%
+%\heading{Committees}{canada_committees.csv}{0 MB}
+%
+%This dataset includes all committees in the House of Commons from the 39th Parliament through the 41st Parliament. No committees changed during this period. There is one observation per committee.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/chamber-1/committee-1}{committee_path}
+%
+%\pathentry{chamber_path}{chamber}{/chamber-1}
+%
+%\pathentry{committee_path}{committee}{/chamber-1/committee-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{chamber_number}, then by \code{committee_number}}
+%
+%\chambernumber
+%
+%\committeenumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{committee_name}{The name of the committee.}
+%
+%\newpage
+%
+%\entry{committee_acronym}{The acronym of the committee.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% committee membership
+%%--------------------------------------------------%
+%
+%\heading{Committee Membership}{canada_committee_membership.csv}{0 MB}
+%
+%This dataset indicates the members of each committee in the House of Commons in each parliament from the 38th parliament through the 41st parliament. There is one observation per member per committee per parliament.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/chamber-1/committee-1/member-1}{member_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{chamber_path}{chamber within a parliament}{/parliament-41/chamber-1}
+%
+%\pathentry{committee_path}{committee}{/parliament-41/chamber-1/committee-1}
+%
+%\pathentry{member_path}{member of a committee}{/parliament-41/chamber-1/committee-1/member-1}
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationnumber{\code{parliament_number}, then by \code{chamber_number}, then by \code{member_number}}
+%
+%\parliamentnumber
+%
+%\chambernumber
+%
+%\committeenumber
+%
+%\membernumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\committeename
+%
+%\committeeacronym
+%
+%\committeeid
+%
+%\membername{}
+%
+%\memberid
+%
+%\constituencyname{}
+%
+%\constituencyid
+%
+%\entry{position}{The position of the member on the committee. Possible values include:
+%	\begin{itemize}
+%		\+{Chair}
+%		\+{Co-chair}
+%		\+{Member}
+%\end{itemize}}
+%
+%\entry{start_date}{The start date for each member on the committee in the format \code{YYYY-MM-DD}. The start date of the parliament unless the member was added to the committee part way through a session.}
+%
+%\entry{end_date}{The end date for each member on the committee in the format \code{YYYY-MM-DD}. The end date of the parliament unless the member was removed from the committee during a session.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% constituencies
+%%--------------------------------------------------%
+
+\heading{Constituencies}{canada_constituencies.csv}{0 MB}
+
+This dataset includes all constituencies for the House of Commons from the 38th Parliament through the 41st Parliament. No constituencies were changed during this period. There is one observation per constituency. The constituency \code{Western Arctic} was renamed \code{Northwest Territories} in 2014. It is coded \code{Northwest Territories} in this dataset.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/chamber-1/constituency-1}{constituency_path}
+
+\pathentry{chamber_path}{chamber}{/chamber-1}
+
+\pathentry{constituency_path}{constituency}{/chamber-1/constituency-1}
+
+\myline
+
+\subheading{Sorting variables}
+
+\observationnumber{\code{chamber_number}, then by \code{constituency_number}}
+
+\chambernumber
+
+\chambername
+
+\newpage
+
+\constituencynumber
+
+\myline
+
+\subheading{Variables}
+
+\entry{constituency_name}{The name of the constituency.}
+
+\entry{province_name}{The province in which the constituency is located.}
+
+\myline
+
+%%--------------------------------------------------%
+%% divisions
+%%--------------------------------------------------%
+
+\heading{Divisions}{canada_divisions.csv}{0 MB}
+
+This dataset includes all recorded divisions from the 38th parliament through the 41st parliament. There is one observation per division.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/session-2/chamber-1/division-1}{division_path}
+
+\pathentry{parliament_path}{parliament}{/parliament-41}
+
+\pathentry{session_path}{session}{/parliament-41/session-2}
+
+\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+
+\pathentry{division_path}{division}{/parliament-41/session-2/chamber-1/division-1}
+
+\myline
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{division_number}}
+
+\parliamentnumber
+
+\sessionnumber
+
+\chambernumber
+
+\divisionnumber
+
+\myline
+
+\subheading{Variables}
+
+\entry{division_date}{The date of the division in the format \code{YYYY-MM-DD}.}
+
+\entry{division_type}{The type of the division. Possible values include:
+	%	\begin{itemize}
+	%		\+ {Bill (amendment at report stage)}
+	%		\+{Bill (concurrence at report stage)}
+	%		\+{Bill (hoist amendment)}
+	%		\+{Bill (motion respecting Lords amendments)}
+	%		\+{Bill (recommittal to a committee)}
+	%		\+{Bill (referral to a committee)}
+	%		\+{Bill (second reading)}
+	%		\+{Bill (third reading)}
+	%		\+{Bill (time allocation)}
+	%		\+{Concurrence (in a report)}
+	%		\+{Concurrence (in an opposed item)}
+	%		\+{Concurrence (in estimates)}
+	%		\+{Concurrence (in interim supply)}
+	%		\+{Motion (government business)}
+	%		\+{Motion (for the production of papers)}
+	%		\+{Motion (opposition)}
+	%		\+{Motion (ways and means)}
+	%		\+{Motion (respecting the proceedings and business of the House)}
+	%		\+{Motion (to adjourn the debate)}
+	%		\+{Motion (to adjourn the House)}
+	%		\+{Motion (to head another member)}
+	%		\+{Motion (to restore a vote in estimates)}
+	%		\+{Other (appointment of an officer)}
+	%		\+{Other (budgetary policy)}
+	%		\+{Other (referral of a question of privilege to a committee)}
+	%		\+{Other (report)}
+	%\end{itemize}
+}
+
+\billid
+
+\entry{result}{The result of the division. Possible values include:
+	\begin{itemize}
+		\+{Agreed to}
+		\+{Negatived}
+\end{itemize}}
+
+\entry{yea}{The number of members who voted yea.}
+
+\entry{nay}{The number of members who voted nay.}
+
+\entry{paired}{The number of paired votes.}
+
+\myline
+
+%%--------------------------------------------------%
+%% divisions - breakdown
+%%--------------------------------------------------%
+
+\heading{Divisions: Expanded}{canada_divisions_expanded.csv}{0 MB}
+
+This dataset indicates how each member voted in all recorded divisions from the 38th parliament through the 41st parliament. There is one observation per voting member per division. Members who abstain are excluded.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/session-2/chamber-1/division-1/vote-1}{vote_path}
+
+\pathentry{parliament_path}{parliament}{/parliament-41}
+
+\pathentry{session_path}{session}{/parliament-41/session-2}
+
+\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+
+\pathentry{division_path}{division}{/parliament-41/session-2/chamber-1/division-1}
+
+\pathentry{vote_path}{member who cast a vote}{/parliament-41/session-2/chamber-1/division-1/vote-1}
+
+\myline
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{division_number}, then by \code{vote_number}}
+
+\parliamentnumber
+
+\sessionnumber
+
+\chambernumber
+
+\divisionnumber
+
+\votenumber
+
+\myline
+
+\subheading{Variables}
+
+\entry{division_date}{The date of the division in the format \code{YYYY-MM-DD}.}
+
+\membername{ who cast the vote}
+
+\memberid
+
+\constituencyname{ who cast the vote}
+
+\constituencyid
+
+\entry{yea}{A dummy variable indicating whether the member voted yea.}
+
+\entry{nay}{A dummy variable indicating whether the member voted nay.}
+
+\newpage
+
+\entry{paired}{A dummy variable indicating whether the vote was paired.}
+
+\myline
+
+%%--------------------------------------------------%
+%% elections
+%%--------------------------------------------------%
+%
+%\heading{Elections}{canada_elections.csv}{0 MB}
+%
+%This dataset includes all candidates who ran for office in each constituency in each election from the 2004 general election through the 2015 general election, including by-elections. There is one observation per candidate per race per election.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/election-1/race-1/candidate-1}{candidate_path}
+%
+%\pathentry{election_path}{election}{/election-1}
+%
+%\pathentry{race_path}{race in an election}{/election-1/race-1}
+%
+%\pathentry{candidate_path}{candidate in each race}{/election-1/race-1/candidate-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{election_number}, then by \code{race_number}, then by \code{candidate_number}}
+%
+%\electionnumber
+%
+%\racenumber
+%
+%\candidatenumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{election_date}{The date the election was held in the format \code{YYYY-MM-DD}.}
+%
+%\entry{election_type}{The type of the election. Possible values include:
+%	\begin{itemize}
+%		\+{General election}
+%		\+{By-election}
+%\end{itemize}}
+%
+%\entry{full_name}{The first and last name of the candidate.}
+%
+%\entry{first_name}{The first name of the candidate.}
+%
+%\entry{last_name}{The last name of the candidate.}
+%
+%\memberid
+%
+%\entry{constituency_name}{The name of the constituency in which the candidate ran for office.}
+%
+%\constituencyid
+%
+%\entry{party}{The party of the candidate. Possible values include:
+%	\begin{itemize}
+%		\+{Alliance of the North}
+%		\+{Animal Alliance Environment Voters Party of Canada}
+%		\+{Bloc Québécois}
+%		\+{Canada Party}
+%		\+{Canadian Action Party}
+%		\+{Christian Heritage Party of Canada}
+%		\+{Communist Party of Canada}
+%		\+{Conservative Party of Canada}
+%		\+{Democratic Advancement Party of Canada}
+%		\+{First Peoples National Party of Canada}
+%		\+{Forces et Démocratie}
+%		\+{Green Party of Canada}
+%		\+{Independent}
+%		\+{Liberal Party of Canada}
+%		\+{Libertarian Party of Canada}
+%		\+{Marijuana Party}
+%		\+{Marxist-Leninist Party of Canada}
+%		\+{New Democratic Party}
+%		\+{Newfoundland and Labrador First Party}
+%		\+{Online Party of Canada}
+%		\+{Party for Accountability, Competency and Transparency}
+%		\+{People's Political Power Party of Canada}
+%		\+{Pirate Party of Canada}
+%		\+{Progressive Canadian Party}
+%		\+{Progressive Conservative Party of Canada}
+%		\+{Rhinoceros Party}
+%		\+{Seniors Party of Canada}
+%		\+{The Bridge Party of Canada}
+%		\+{United Party of Canada}
+%		\+{Western Block Party}
+%		\+{Work Less Party}
+%\end{itemize}}
+%
+%\entry{election_result}{The result of the election with respect to each candidate. Possible values include:
+%	\begin{itemize}
+%		\+{Defeated}
+%		\+{Elected}
+%		\+{Re-elected}
+%\end{itemize}}
+%
+%\myline
+%
+
+%%--------------------------------------------------%
+%% floor speeches
+%%--------------------------------------------------%
+
+\heading{Floor Speeches}{canada_floor_speeches.csv}{1.0 GB}
+
+This dataset includes all speeches delivered by members of the House of Commons from the 38th Parliament through the 41st Parliament (includes speeches by the presiding officer but not speeches by non-members). There is one observation per paragraph per speech.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/session-2/chamber-1/sitting-1/speech-1/paragraph-1}{paragraph_path}
+
+\pathentry{parliament_path}{parliament}{/parliament-41}
+
+\pathentry{session_path}{session}{/parliament-41/session-2}
+
+\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+
+\pathentry{sitting_path}{sitting}{/parliament-41/session-2/chamber-1/sitting-1/}
+
+\pathentry{speech_path}{speech}{/parliament-41/session-2/chamber-1/sitting-1/speech-1/}
+
+\pathentry{paragraph_path}{paragraph}{/parliament-41/session-2/chamber-1/sitting-1/speech-1/paragraph-1}
+
+\myline
+
+\newpage
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{sitting_number}, then by \code{speech_number}, then by \code{paragraph_number}}
+
+\parliamentnumber
+
+\sessionnumber
+
+\chambernumber
+
+\sittingnumber
+
+\speechnumber
+
+\paragraphnumber
+
+\myline
+
+\subheading{Variables}
+
+\entry{hansard_volume}{The volume of the Hansard that contains the speech. There is one volume per session.}
+
+\entry{hansard_issue}{The issue of the Hansard that contains the speech. Note that issue numbers repeat across volumes.}
+
+\entry{speech_date}{The date of the speech in the format \code{YYYY-MM-DD}.}
+
+\entry{speech_type}{The type of the speech. Possible values include: 
+	\begin{itemize}
+		\+{Answer}
+		\+{Debate}
+		\+{Interjection}
+		\+{Question}
+		\+{Other}
+\end{itemize}}
+
+%\entry{heading}{str}{The order of business under which the speech was given. Possible values include:}
+%\begin{itemize}
+%\+{Adjournment Proceedings}
+%\+{Emergency Debate}
+%\+{Government Orders}
+%\+{Opening of Parliament}
+%\+{Oral Questions}
+%\+{Orders of the Day}
+%\+{Points of Order}
+%\+{Private Members' Business}
+%\+{Routine Proceedings}
+%\+{Royal Assent}
+%\+{Speech from the Throne}
+%\+{Statements by Members}
+%\+{Other}
+%\end{itemize}
+
+\membername{ who gave the speech}
+
+\memberid
+
+\constituencyname{ who gave the speech}
+
+\constituencyid
+
+\entry{party_name}{The name of the party of the member who gave the speech.}
+
+\entry{paragraph_text}{The text of the paragraph.}
+
+\entry{word_count}{The word count of the paragraph.}
+
+\myline
+
+%%--------------------------------------------------%
+%% members
+%%--------------------------------------------------%
+
+\heading{Members of the House of Commons}{canada_members.csv}{0 MB}
+
+This dataset includes all members of the House of Commons from the 38th parliament through the 41st parliament. There is one observation per member.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/chamber-1/member-1}{member_path}
+
+\pathentry{chamber_path}{chamber}{/chamber-1}
+
+\pathentry{member_path}{member}{/chamber-1/member-1}
+
+\myline
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{chamber_number}, then by \code{member_number}}
+
+\chambernumber
+
+\membernumber
+
+\myline
+
+\subheading{Variables}
+
+\entry{chamber_name}{The name of the chamber.}
+
+\entry{full_name}{The first and last name of the member.}
+
+\entry{first_name}{The first name of the member.}
+
+\entry{last_name}{The last name of the member.}
+
+\constituencyname{}
+
+\constituencyid
+
+\entry{party_name}{The party of the member. Members sometimes switch parties while in office. This variable indicates their party at the time they were originally elected. Possible values include:
+	\begin{itemize}
+		\+{Bloc Québécois}
+		\+{Conservative Party of Canada}
+		\+{Forces et Démocratie}
+		\+{Green Party of Canada}
+		\+{Independent}
+		\+{Liberal Party of Canada}
+		\+{New Democratic Party}
+\end{itemize}}
+
+\entry{start_date}{The date that the member started serving in parliament in the format \code{YYYY-MM-DD}.}
+
+\entry{end_date}{The date that the member stopped serving in parliament in the format \code{YYYY-MM-DD}.}
+
+\myline
+
+
+%%--------------------------------------------------%
+%% ministries
+%%--------------------------------------------------%
+%
+%\heading{Ministries}{canada_ministries.csv}{0 MB}
+%
+%This dataset indicates which members of the House of Commons are in the ministry. There is one observation per portfolio per minister.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/ministry-27/minister-1/portfolio-1}{portfolio_path}
+%
+%\pathentry{ministry_path}{ministry}{/ministry-27}
+%
+%\pathentry{minister_path}{minister}{/ministry-27/minister-1}
+%
+%\pathentry{portfolio_path}{portfolio of a minister}{/ministry-27/minister-1/portfolio-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{ministry_number}, then by \code{minister_number}, then by \code{portfolio_number}}
+%
+%\ministrynumber
+%
+%\ministernumber
+%
+%\newpage
+%
+%\portfolionumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\membername{}
+%
+%\memberid
+%
+%\constituencyname{}
+%
+%\constituencyid
+%
+%\entry{portfolio_name}{The name of the portfolio.}
+%
+%\entry{start_date}{The date the member became responsible for the portfolio in the format \code{YYYY-MM-DD}.}
+%
+%\entry{end_date}{The date the member stopped being responsible the portfolio in the format \code{YYYY-MM-DD}.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% motions
+%%--------------------------------------------------%
+%
+%\heading{Motions}{canada_motions.csv}{0 MB}
+%
+%This dataset includes all motions filed by members of the House of Commons from the 38th Parliament through the 41st Parliament. There is one observation per motion. This dataset includes motions listed in the Status of House Business, which includes government motions, ways and means motions, private members' motions, and motions for the production of papers.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/session-2/chamber-1/motion-class-1/motion-1}{motion_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{session_path}{session}{/parliament-41/session-2}
+%
+%\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+%
+%\pathentry{motion_class_path}{motions class}{/parliament-41/session-2/chamber-1/motion-class-1}
+%
+%\pathentry{motion_path}{motion}{/parliament-41/session-2/chamber-1/motion-class-1/motion-1}
+%
+%\myline
+%
+%\newpage
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{motion_class_number}, then by \code{motion_number}}
+%
+%\parliamentnumber
+%
+%\sessionnumber
+%
+%\chambernumber
+%
+%\motionclassnumber
+%
+%\motionnumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{motion_class}{The class of the motion. Possible value include:
+%	\begin{itemize}
+%		\+{Government Motion}
+%		\+{Motion for the Production of Papers}
+%		\+{Private Members' Motion}
+%		\+{Ways and Means Motion}
+%\end{itemize}}
+%
+%\entry{notice_date}{The date on which the notice of the motion appeared in the notice paper in the format \code{YYYY-MM-DD}.}
+%
+%\entry{file_date}{The date that the motion was filed in the format \code{YYYY-MM-DD}. Note that this is not necessarily the date that the notice appeared in the notice paper because a motion can be submitted on a day on which there is not a sitting.}
+%
+%\membername{ who filed the motion}
+%
+%\memberid
+%
+%\constituencyname{ who filed the motion}
+%
+%\constituencyid
+%
+%\entry{motion_text}{The cleaned text of the motion.}
+%
+%\entry{word_count}{The word count of the motion.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% motions - events
+%%--------------------------------------------------%
+%
+%\heading{Motions: Events}{canada_motions_events.csv}{0 MB}
+%
+%This dataset includes all events related to all motions filed by members of the House of Commons from the 38th Parliament through the 41st Parliament. There is one observation per event per motion.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/session-2/chamber-1/motion-class-1/motion-1/event-1}{event_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{session_path}{session}{/parliament-41/session-2}
+%
+%\pathentry{chamber_path}{chamber}{/parliament-41/session-2/chamber-1}
+%
+%\pathentry{motion_class_path}{motions class}{/parliament-41/session-2/chamber-1/motion-class-1}
+%
+%\pathentry{motion_path}{motion}{/parliament-41/session-2/chamber-1/motion-class-1/motion-1}
+%
+%\pathentry{event_path}{event}{/parliament-41/session-2/chamber-1/motion-class-1/motion-1/event-1}
+%
+%\myline
+%
+%\newpage
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{motion_class_number}, then by \code{motion_number}, then by \code{event_number}}
+%
+%\parliamentnumber
+%
+%\sessionnumber
+%
+%\chambernumber
+%
+%\motionclassnumber
+%
+%\motionnumber
+%
+%\eventnumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{motion_class}{The class of the motion. Possible value include:
+%	\begin{itemize}
+%		\+{Government Motion}
+%		\+{Motion for the Production of Papers}
+%		\+{Private Members' Motion}
+%		\+{Ways and Means Motion}
+%\end{itemize}}
+%
+%\membername{ who filed the motion}
+%
+%\memberid
+%
+%\constituencyname{ who filed the motion}
+%
+%\constituencyid
+%
+%\entry{event_date}{The date of the event in the format \code{YYYY-MM-DD}.}
+%
+%\entry{event_text}{A description of the event.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% bill motions
+%%--------------------------------------------------%
+%
+%\heading{Motions: Bills}{canada_bill_motions.csv}{0 MB}
+%
+%This dataset includes all motions on bills under the ``Report Stage of Bills'' heading in the Notice Paper from the 38th Parliament through the 41st Parliament. There is one observation per motion.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/session-2/chamber-1/sitting-1/motion-1}{motion_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{session_path}{session}{/parliament-41/session-2}
+%
+%\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+%
+%\pathentry{sitting_path}{sitting}{/parliament-41/session-2/chamber-1/sitting-1}
+%
+%\pathentry{motion_path}{motion}{/parliament-41/session-2/chamber-1/sitting-1/motion-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{sitting_number}, then by \code{question_number}}
+%
+%\parliamentnumber
+%
+%\sessionnumber
+%
+%\sittingnumber
+%
+%\chambernumber
+%
+%\questionnumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{notice_date}{The date on which the notice of the motion appeared in the notice paper in the format \code{YYYY-MM-DD}.}
+%
+%\entry{file_date}{The date that the motion was filed in the format \code{YYYY-MM-DD}. Note that this is not necessarily the date that the notice appeared in the notice paper because a motion can be filed on a day on which there is not a sitting.}
+%
+%\entry{subheading}{The subheading of the Notice Paper (under the heading ``Report Stage of Bills'') under which the motion falls. Possible values include:
+%	\begin{itemize}
+%		\+{Deferred Recorded Divisions}
+%		\+{Notices of Motions}
+%		\+{Resuming Debate}
+%\end{itemize}}
+%
+%\membername{ who filed the motion}
+%
+%\memberid
+%
+%\constituencyname{ who filed the motion}
+%
+%\constituencyid
+%
+%\entry{motion_text}{The cleaned text of the motion.}
+%
+%\entry{word_count}{The word count of the motion.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% notice papers
+%%--------------------------------------------------%
+%
+%\heading{Notice Papers}{canada_notice_papers.csv}{0 MB}
+%
+%This dataset includes all items in Notice Paper for each sitting of the House of Commons from 38th Parliament through the 41st Parliament. There is one observation per item. The dataset omits items under the ``Business of Supply'' heading. Motions to amend bills can be re-notified, in which case the motion number can change. They are then listed under resuming debate. Once debate has begun, the motion number cannot change. An item is uniquely identified by the name of the member, the name of the member's constituency, and the text of the item. Items can have multiple entries for the following reasons:
+%\begin{itemize}
+%	\item A Private Members' motion or bill can have multiple entries because debate on the item can be resumed (under the heading ``Private Members' Business''). In such cases, subsequent entries for an item will have different dates.
+%	\item A motion to amend to bills can have multiple entries (1) if it is re-notified when the numbering changes, (2) if debate on the item is resumed, (3) if a deferred recorded division is notified, or (4) if a deferred recorded division is re-notified when the numbering changes.
+%\end{itemize}
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/session-2/chamber-1/item-1}{item_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{session_path}{session}{/parliament-41/session-2}
+%
+%\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+%
+%\pathentry{chamber_path}{sitting}{/parliament-41/session-2/chamber-1/sitting-1}
+%
+%\pathentry{item_path}{item}{/parl-iament-41/session-2/chamber-1/sitting-1/item-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{sitting_number}, then by \code{item_number}}
+%
+%\parliamentnumber
+%
+%\sessionnumber
+%
+%\chambernumber
+%
+%\sittingnumber
+%
+%\itemnumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{sitting_date}{The date of the sitting in the format \code{YYYY-MM-DD}.}
+%
+%\entry{item_date}{The date on which the item was first introduced in the format \code{YYYY-MM-DD}.}
+%
+%\membername{ who is responsible for the item}
+%
+%\memberid
+%
+%\constituencyname{ who is responsible for the item}
+%
+%\constituencyid
+%
+%\billid
+%
+%\motionid
+%
+%\questionid
+%
+%\entry{item_description}{A description of the item.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% order papers
+%%--------------------------------------------------%
+
+\heading{Order Papers}{canada_order_papers.csv}{0 MB}
+
+This dataset includes all items on the Order Paper for each sitting of the House of Commons from 38th Parliament through the 41st Parliament. There is one observation per item.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/session-2/chamber-1/item-1}{item_path}
+
+\pathentry{parliament_path}{parliament}{/parliament-41}
+
+\pathentry{session_path}{session}{/parliament-41/session-2}
+
+\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+
+\pathentry{sitting_path}{sitting}{/parliament-41/session-2/chamber-1/sitting-1}
+
+\pathentry{item_path}{item}{/parl-iament-41/session-2/chamber-1/sitting-1/item-1}
+
+\newpage
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{sitting_number}, then by \code{item_number}}
+
+\parliamentnumber
+
+\sessionnumber
+
+\chambernumber
+
+\sittingnumber
+
+\itemnumber
+
+\myline
+
+\subheading{Variables}
+
+\entry{sitting_date}{The date of the sitting in the format \code{YYYY-MM-DD}.}
+
+\entry{item_date}{The date on which the item was first introduced in the format \code{YYYY-MM-DD}.}
+
+\entry{page_number}{The number of the page on which the item is located in the Notice Paper.}
+
+\entry{heading}{The heading under which the item appears. Possible values include:
+%	\begin{itemize}
+%		\+{Address in Reply to the Speech from the Throne}
+%		\+{Business of Supply}
+%		\+{Concurrence in Committee Reports}
+%		\+{Deferred Recorded Division}
+%		\+{First Reading of Lords Public Bills}
+%		\+{Government Bills (Commons)}
+%		\+{Government Bills (Lords)}
+%		\+{Government Business}
+%		\+{Introduction of Government Bills}
+%		\+{Introduction of Private Members' Bills}
+%		\+{Motions}
+%		\+{Notices of Motions}
+%		\+{Notices of Motions for the Production of Papers}
+%		\+{Opposition Motions}
+%		\+{Privilage}
+%		\+{Public Bills (Commons)}
+%		\+{Questions}
+%		\+{Rescheduled Business}
+%		\+{Ways and Means}
+%\end{itemize}
+}
+
+\membername{ who is responsible for the item}
+
+\memberid
+
+\constituencyname{ who is responsible for the item}
+
+\constituencyid
+
+\billid
+
+\motionid
+
+\questionid
+
+\entry{item_description}{A description of the item.}
+
+\myline
+
+%%--------------------------------------------------%
+%% order of precedence
+%%--------------------------------------------------%
+%
+%\heading{Order of Precedence}{canada_order_precedence.csv}{0 MB}
+%
+%This dataset includes all items in the Order of Precedence, located in the Order Paper, for each sitting of the House of Commons from 38th Parliament through the 41st Parliament. There is one observation per item.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/session-2/chamber-1/item-1}{item_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{session_path}{session}{/parliament-41/session-2}
+%
+%\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+%
+%\pathentry{chamber_path}{sitting}{/parliament-41/session-2/chamber-1/sitting-1}
+%
+%\pathentry{item_path}{item}{/parl-iament-41/session-2/chamber-1/sitting-1/item-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{sitting_number}, then by \code{item_number}}
+%
+%\parliamentnumber
+%
+%\sessionnumber
+%
+%\chambernumber
+%
+%\sittingnumber
+%
+%\itemnumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{sitting_date}{The date of the sitting in the format \code{YYYY-MM-DD}.}
+%
+%\entry{item_date}{The date on which the item was first introduced in the format \code{YYYY-MM-DD}.}
+%
+%\entry{order}{The order of the item in the Order of Precedence.}
+%
+%\membername{ who is responsible for the item}
+%
+%\memberid
+%
+%\constituencyname{ who is responsible for the item}
+%
+%\constituencyid
+%
+%\billid
+%
+%\motionid
+%
+%\entry{item_description}{A description of the item.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% questions
+%%--------------------------------------------------%
+
+\heading{Questions}{canada_questions.csv}{0 MB}
+
+This dataset includes all written questions submitted by members of the House of Commons from the 38th Parliament through the 41st Parliament. There is one observation per question.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/session-2/chamber-1/question-1}{question_path}
+
+\pathentry{parliament_path}{parliament}{/parliament-41}
+
+\pathentry{session_path}{session}{/parliament-41/session-2}
+
+\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+
+\pathentry{question_path}{question}{/parliament-41/session-2/chamber-1/question-1}
+
+\myline
+
+\subheading{Sorting Variables}
+
+\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{question_number}}
+
+\parliamentnumber
+
+\sessionnumber
+
+\chambernumber
+
+\questionnumber
+
+\myline
+
+\subheading{Variables}
+
+\entry{notice_date}{The date on which the notice of the question appeared in the notice paper in the format \code{YYYY-MM-DD}.}
+
+\entry{submission_date}{The date that the question was submitted in the format \code{YYYY-MM-DD}. Note that this is not necessarily the date that the notice appeared in the notice paper because a question can be submitted on a day on which there is not a sitting.}
+
+\membername{ who submitted the question}
+
+\memberid
+
+\constituencyname{ who submitted the question}
+
+\constituencyid
+
+\entry{question_text}{The cleaned text of the question.}
+
+\entry{word_count}{The word count of the question.}
+
+\myline
+
+%%--------------------------------------------------%
+%% questions - events
+%%--------------------------------------------------%
+
+\heading{Questions: Events}{canada_question_events.csv}{0 MB}
+
+This dataset includes all events related to all written questions submitted by members of the House of Commons from the 38th Parliament through the 41st Parliament. There is one observation per event per question.
+
+\myline
+
+\subheading{Grouping Variables}
+
+\observationpath{/parliament-41/session-2/chamber-1/question-1/event-1}{event_path}
+
+\pathentry{parliament_path}{parliament}{/parliament-41}
+
+\pathentry{session_path}{session}{/parliament-41/session-2}
+
+\pathentry{chamber_path}{chamber}{/parliament-41/session-2/chamber-1}
+
+\pathentry{question_path}{question}{/parliament-41/session-2/chamber-1/question-1}
+
+\pathentry{event_path}{event}{/parliament-41/session-2/chamber-1/question-1/event-1}
+
+\myline
+
+\subheading{Sorting Variables}
+
+\observationnumber{\texttt{parliament_number}, then by \texttt{session_number}, then by \texttt{chamber_number}, then by \texttt{question_number}, then by \texttt{event_number}}
+
+\parliamentnumber
+
+\sessionnumber
+
+\chambernumber
+
+\questionnumber
+
+\eventnumber
+
+\myline
+
+\subheading{Variables}
+
+\membername{ who submitted the question}
+
+\memberid
+
+\constituencyname{ who submitted the question}
+
+\constituencyid
+
+\entry{event_date}{str}{The date of the event in the format \texttt{YYYY-MM-DD}.}
+
+\entry{event_text}{str}{A description of the event. Possible values include:
+	\begin{itemize}
+		\+{Absence of a reply deemed referred to a committee}
+		\+{Answer tabled}
+		\+{Answered}
+		\+{Made on Order for Return and answer tabled}
+		\+{Made an Order for Return and revised answer tabled}
+		\+{Made an Order for Return and supplementary answer tabled}
+		\+{Notice}
+		\+{Revised answer}
+		\+{Withdrawn}
+\end{itemize}}
+
+\myline
+
+
+
+%%--------------------------------------------------%
+%% committee speeches
+%%--------------------------------------------------%
+%
+%\heading{Committee Speeches}{canada_committee_speeches.csv}{2.1 GB}
+%
+%This dataset includes all speeches delivered by members of the House of Commons in committee from the 39th Parliament through the 41st Parliament (includes speeches by the presiding officer and by witnesses). There is one observation per paragraph per speech.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/session-2/chamber-1/committee-1/sitting-1/speech-1/paragraph-1}{paragraph_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{session_path}{session}{/parliament-41/session-2}
+%
+%\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+%
+%\pathentry{committee_path}{committee}{/parliament-41/session-2/chamber-1/committee-1/}
+%
+%\pathentry{sitting_path}{sitting}{/parliament-41/session-2/chamber-1/committee-1/sitting-1/}
+%
+%\pathentry{speech_path}{speech}{/parliament-41/session-2/chamber-1/committee-1/sitting-1/speech-1/}
+%
+%\newpage
+%
+%\pathentry{paragraph_path}{paragraph}{/parliament-41/session-2/chamber-1/committee-1/sitting-1/speech-1/paragraph-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\parliamentnumber
+%
+%\sessionnumber
+%
+%\chambernumber
+%
+%\committeenumber
+%
+%\committeesittingnumber
+%
+%\speechnumber
+%
+%\paragraphnumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{speech_date}{The date of the speech in the format \code{YYYY-MM-DD}.}
+%
+%\entry{person_name}{The full name of the person who gave the speech.}
+%
+%\entry{is_member}{A dummy variable indicating whether the person who gave the speech was a member of the House of Commons.}
+%
+%\entry{is_chair}{A dummy variable indicating whether the person who gave the speech was the chair (or the presiding member).}
+%
+%\entry{is_witness}{A dummy variable indicating whether the person who gave the speech was a witness.}
+%
+%\memberid
+%
+%\constituencyname{ who gave the speech}
+%
+%\constituencyid
+%
+%\entry{paragraph_text}{The cleaned text of the paragraph.}
+%
+%\entry{word_count}{The word count of the paragraph.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% SoHB - items
+%%--------------------------------------------------%
+%
+%\heading{Status of House Business: Items}{canada_status_house_business_items.csv}{0 MB}
+%
+%This dataset includes all items in the Status of House Business for the 39th Parliament through the 41st Parliament. There is one observation per item.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/session-2/chamber-1/item-1}{item_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{session_path}{session}{/parliament-41/session-2}
+%
+%\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+%
+%\pathentry{item_path}{item}{/parl-iament-41/session-2/chamber-1/item-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{item_number}}
+%
+%\parliamentnumber
+%
+%\sessionnumber
+%
+%\chambernumber
+%
+%\itemnumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{part}{The part under which the item appears. Possible values include (listed in the order in which they appear in the document):
+%	\begin{itemize}
+%		\+{Part I: Government Orders}
+%		\+{Part II: Private Members' Business}
+%		\+{Part III: Written Questions}
+%		\+{Part IV: Business Respecting Committees}
+%\end{itemize}}
+%
+%\entry{heading}{The heading under which the item appears. Possible values include (listed in the order in which they appear in the document):
+%	\begin{itemize}
+%		\+{Government Bills (Comments)} (Part I)
+%		\+{Government Bills (Lords)} (Part I)
+%		\+{Ways and Means} (Part I)
+%		\+{Government Business} (Part I)
+%		\+{Private Members' Bills (Commons)} (Part II)
+%		\+{Private Members' Bills (Lords)} (Part II)
+%		\+{Private Bills} (Part II)
+%		\+{Private Members' Motions} (Part II)
+%		\+{Motions for the Production of Papers} (Part II)
+%		\+{Written Questions} (Part III)
+%		\+{Concurrence in Committee Reports} (Part IV)
+%\end{itemize}}
+%
+%\entry{item_type}{The type of the item. Possible values include:
+%	\begin{itemize}
+%		\+{Bill}
+%		\+{Motion}
+%		\+{Question}
+%\end{itemize}}
+%
+%\entry{item_subtype}{The subtype of the item. Possible values include:
+%	\begin{itemize}
+%		\+{Government Bill (Commons)}
+%		\+{Government Bill (Lords)}
+%		\+{Private Members' Bill (Commons)}
+%		\+{Private Members' Bill (Lords)}
+%		\+{Private Bill}
+%		\+{Private Members' Motion}
+%		\+{Motion for the Production of Papers}
+%		\+{Motion on Government Business}
+%		\+{Ways and Means Motion}
+%		\+{Motion to Concur}
+%		\+{Question}
+%\end{itemize}}
+%
+%\membername{ who is responsible for the item}
+%
+%\memberid
+%
+%\constituencyname{ who is responsible for the item}
+%
+%\constituencyid
+%
+%\entry{item_description}{A description of the item.}
+%
+%\myline
+%
+%%--------------------------------------------------%
+%% SoHB - events
+%%--------------------------------------------------%
+%
+%\heading{Status of House Business: Events}{canada_status_house_business_events.csv}{0 MB}
+%
+%This dataset includes all events related to all items in the Status of House Business for the 39th Parliament through the 41st Parliament. There is one observation per event per item.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/session-2/chamber-1/item-1/event-1}{item_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{session_path}{session}{/parliament-41/session-2}
+%
+%\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+%
+%\pathentry{item_path}{item}{/parl-iament-41/session-2/chamber-1/item-1}
+%
+%\pathentry{event_path}{event}{/parliament-41/session-2/chamber-1/item-1/event-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{item_number}, then by \code{event_number}}
+%
+%\parliamentnumber
+%
+%\sessionnumber
+%
+%\chambernumber
+%
+%\itemnumber
+%
+%\eventnumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{part}{The part under which the item appears. Possible values include:
+%	\begin{itemize}
+%		\+{Part I: Government Orders}
+%		\+{Part II: Private Members' Business}
+%		\+{Part III: Written Questions}
+%		\+{Part IV: Business Respecting Committees}
+%\end{itemize}}
+%
+%\entry{heading}{The heading under which the item appears. Possible values include:
+%	\begin{itemize}
+%		\+{Government Bills (Comments)} (Part I)
+%		\+{Government Bills (Lords)} (Part I)
+%		\+{Ways and Means} (Part I)
+%		\+{Government Business} (Part I)
+%		\+{Private Members' Bills (Commons)} (Part II)
+%		\+{Private Members' Bills (Lords)} (Part II)
+%		\+{Private Bills} (Part II)
+%		\+{Private Members' Motions} (Part II)
+%		\+{Motions for the Production of Papers} (Part II)
+%		\+{Written Questions} (Part III)
+%		\+{Concurrence in Committee Reports} (Part IV)
+%\end{itemize}}
+%
+%\entry{item_type}{str}{The type of the item. Possible values include:
+%	\begin{itemize}
+%		\+{Bill}
+%		\+{Motion}
+%		\+{Question}
+%\end{itemize}}
+%
+%\entry{item_subtype}{The subtype of the item. Possible values include:
+%	\begin{itemize}
+%		\+{Government Bill (Commons)}
+%		\+{Government Bill (Lords)}
+%		\+{Private Members' Bill (Commons)}
+%		\+{Private Members' Bill (Lords)}
+%		\+{Private Bill}
+%		\+{Private Members' Motion}
+%		\+{Motion for the Production of Papers}
+%		\+{Motion on Government Business}
+%		\+{Ways and Means Motion}
+%		\+{Motion to Concur}
+%		\+{Question}
+%\end{itemize}}
+%
+%\membername{ who is responsible for the item}
+%
+%\memberid
+%
+%\constituencyname{ who is responsible for the item}
+%
+%\constituencyid
+%
+%\entry{item_description}{A description of the item.}
+%
+%\entry{event_description}{A description of the event.}
+%
+%\myline
+%
+
+%%--------------------------------------------------%
+%% voice votes
+%%--------------------------------------------------%
+%
+%\heading{Voice Votes}{canada_voice_votes.csv}{0 MB}
+%
+%This dataset includes all voice votes held in the House of Commons from the 38th Parliament through the 41st Parliament. There is one observation per voice vote.
+%
+%\myline
+%
+%\subheading{Grouping Variables}
+%
+%\observationpath{/parliament-41/session-2/chamber-1/sitting-1/vote-1}{vote_path}
+%
+%\pathentry{parliament_path}{parliament}{/parliament-41}
+%
+%\pathentry{session_path}{session}{/parliament-41/session-2}
+%
+%\pathentry{chamber_path}{chamber within a session}{/parliament-41/session-2/chamber-1}
+%
+%\pathentry{sitting_path}{sitting}{/parliament-41/session-2/chamber-1/sitting-1/}
+%
+%\pathentry{vote_path}{vote}{/parl-iament-41/session-2/chamber-1/sitting-1/vote-1}
+%
+%\myline
+%
+%\subheading{Sorting Variables}
+%
+%\observationnumber{\code{parliament_number}, then by \code{session_number}, then by \code{chamber_number}, then by \code{sitting_number}, then by \code{vote_number}}
+%
+%\parliamentnumber
+%
+%\sessionnumber
+%
+%\chambernumber
+%
+%\sittingnumber
+%
+%\votenumber
+%
+%\myline
+%
+%\subheading{Variables}
+%
+%\entry{sitting_date}{The date of the sitting in the format \code{YYYY-MM-DD}.}
+%
+%\entry{question}{The text of the question.}
+%
+%\entry{passed}{A dummy variable indicating whether the motion passed.}
+%
+%\entry{unanimous}{A dummy variable indicating whether the vote was unanimous.}
+%
+%\entry{yays_nays}{A dummy variable indicating whether the vote proceeded to the yeas and the nays.}
+%
+%\entry{division}{A dummy variable indicating whether the vote proceeded to a division.}
+%
+%\entry{deferred}{A dummy variable indicating whether the vote proceeded to a division that was deferred.}
+%
+%\entry{on_division}{A dummy variable indicating whether some members yelled ``on division.''}
+%
+%\entry{pattern}{The pattern that the vote matches. Possible values include:
+%	\begin{itemize}
+%		\+{[1] voice, unanimous}
+%		\+{[2] voice, unanimous, on division}
+%		\+{[3] voice, defeated}
+%		\+{[4] voice, mixed, passed}
+%		\+{[5] voice, mixed, defeated}
+%		\+{[6] voice, mixed, passed, division}
+%		\+{[7] voice, mixed, defeated, division}
+%		\+{[8] voice, mixed, passed, on division}
+%		\+{[9] voice, mixed, defeated, on division}
+%\end{itemize}}
+%
+%\myline
+
+%--------------------------------------------------%
+% end
+%--------------------------------------------------%
+
