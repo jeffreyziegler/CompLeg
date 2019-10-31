@@ -1,5 +1,5 @@
 # these datasets come from http://www.data.parliament.uk/dataset
-# they include
+# they include:
 # (1) Bills
 # (2) Constituencies
 # (3) Divisions
@@ -54,7 +54,7 @@ download_xml <- function(type, maxPages, fileName){
     file <- str_c(getwd(), "/", fileName, "/", type, "_page_", i, ".xml", collapse = "")
     # download file
     tryCatch(download.file(url, file, quiet = TRUE), 
-             error = function(e) print(paste(file, 'questions missing')))
+             error = function(e) print(paste(file, 'content missing')))
     
     # random delay
     Sys.sleep(runif(1, 0, 0.15))
