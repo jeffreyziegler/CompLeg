@@ -54,7 +54,7 @@ download_xml <- function(type, maxPages, fileName){
     file <- str_c(getwd(), "/", fileName, "/", type, "_page_", i, ".xml", collapse = "")
     # download file
     tryCatch(download.file(url, file, quiet = TRUE), 
-             error = function(e) print(paste(file, 'content missing')))
+             error = function(e) print(paste(file, 'questions missing')))
     
     # random delay
     Sys.sleep(runif(1, 0, 0.15))
@@ -74,8 +74,12 @@ download_xml <- function(type, maxPages, fileName){
 # datasets <- data.frame(type=c("bills"), maxPages=c(7), fileName=c("Bills"))
 # Now, let's say I want to get bills and constituencies
 # datasets <- data.frame(type=c("bills", "constituencies"), maxPages=c(7, 7), fileName=c("Bills", "Constituencies"))
+# to get all:
+# datasets <- data.frame(type=c("bills", "constituencies", "commonsdivisions", "answeredquestions", "commonswrittenquestions"), 
+#                       maxPages=c(7, 7, 8, 509, 510), 
+#                       fileName=c("Bills", "Constituencies", "Divisions", "Written_Responses", "Written_Questions"))
 
-datasets <- data.frame(type=c(), maxPages=c(), fileName=c())
+#datasets <- data.frame(type=c(), maxPages=c(), fileName=c())
 
 # Last, execute function for each dataset you download
 for(set in 1:length(unique(datasets$type))){
