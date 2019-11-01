@@ -56,7 +56,7 @@ for(i in 1:x){
   for (j in 1:y){
     url <- paste("https://www.ourcommons.ca/Committees/en/",acronym[i], n[j], sep="")
     file <- paste(acronym[i], "_", pn[j], "_", sn[j], ".html", sep="")
-    download.file(url, file, quiet = TRUE)
+    # download.file(url, file, quiet = TRUE)
   }
 }
 for(i in 1:z){
@@ -121,4 +121,4 @@ canada_non_standing_committee_date_change <- df
 # write csv
 ###############
 setwd('~/Documents/GitHub/CompLegFall2019/data/canadaTextParsing/Committees')
-w# rite.csv(canada_non_standing_committee_date_change, "canada_non_standing_committee_date_change.csv")
+write.csv(canada_non_standing_committee_date_change, "canada_non_standing_committee_date_change.csv")
