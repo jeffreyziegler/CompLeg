@@ -1,3 +1,0 @@
-curl -X GET "https://api.oireachtas.ie/v1/legislation?bill_status=Current,Withdrawn,Enacted,Rejected,Defeated,Lapsed&bill_source=Government,Private%20Member&date_start=1900-01-01&date_end=2099-01-01&limit=2&chamber_id=&lang=en" -H  "accept: application/json" -o output_bills.txt
-
-curl -X GET "https://api.oireachtas.ie/v1/debates?chamber_id=&date_start=1900-01-01&date_end=2099-01-01&limit=2" -H  "accept: application/json" -o output_debates.txt
