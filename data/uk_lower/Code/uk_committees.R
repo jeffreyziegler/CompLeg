@@ -20,7 +20,7 @@ pkgTest <- function(pkg){
   sapply(pkg, require, character.only = TRUE)
 }
 
-lapply(c("stringr", "dplyr", "plyr", "tidyverse", "rvest", "zoo", "XML", "tidyr"), pkgTest)
+lapply(c("stringr", "dplyr", "plyr", "tidyverse", "rvest", "zoo", "XML", "tidyr", "readxl"), pkgTest)
 
 #######################
 # parse HTML function
@@ -64,6 +64,12 @@ files <- list.files(pattern="*.html", full.names=TRUE, recursive=FALSE)
 out <- alply(.data = files, .margins = 1, .fun = parse_HTML, .progress = "text", .inform = TRUE)
 # stack data frames
 df <- do.call("rbind", out)
+
+##################################################
+# read in the excel
+# information about rename, replace, and split
+##################################################
+df_aa <- read_excel("Former Committees' Names.xlsx")
 
 #####################
 # clean the dataset
