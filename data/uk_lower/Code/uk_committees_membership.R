@@ -47,13 +47,86 @@ committees <- xmlToList(xmlParse(files[1]))
 ##################################
 # make the dataframe that we want 
 ##################################
+ nullToNA <- function(x) {
+   if(is.null(x)){
+     x <- NA
+   } else {
+     x <- x
+   }
+ }
 
+ for (i in 1:length(committees)) {
+  ListAs <- committees[[i]]$ListAs
+  LayingMinisterName <- committees[[i]]$LayingMinisterName
+  House <- committees[[i]]$House
+  member_id <- committees[[i]][[".attrs"]]["Member_Id"]
+  ListAs <- nullToNA(ListAs)
+  LayingMinisterName <- nullToNA(LayingMinisterName)
+  House <- nullToNA(House)
+  member_id <- nullToNA(member_id)
+  for (j in 1:length(committees[[i]]$Committees)) {
+    committee_name <- committees[[i]]$Committees[[j]]$Name
+    start_date <- committees[[i]]$Committees[[j]]$StartDate
+    end_date <- committees[[i]]$Committees[[j]]$EndDate
+    chair_date <- committees[[i]]$Committees[[j]]$ChairDates
+    committee_id <- committees[[i]]$Committees[[j]][[".attrs"]]["Id"]
+    committee_name <- nullToNA(committee_name)
+    start_date <- nullToNA(start_date)
+    end_date <- nullToNA(end_date)
+    committee_id <- nullToNA(committee_id)
+    if (!is.null(chair_date)){
+      for (k in 1:length(chair_date <- committees[[i]]$Committees[[j]]$ChairDates)){
+        chair_startDate <- committees[[i]]$Committees[[j]]$ChairDates[[k]]$StartDate
+        chair_endDate <- committees[[i]]$Committees[[j]]$ChairDates[[k]]$EndDate
+        observation <- data.frame(full_name = ListAs,
+                                  House = House,
+                                  member_id = member_id,
+                                  committee_name = committee_name,
+                                  start_date = start_date,
+                                  end_date = end_date,
+                                  chair_startDate = chair_startDate,
+                                  chair_endDate = chair_endDate,
+                                  committee_id = committee_id)
+        out <- rbind(out, observation)
+      }
+    } else {
+      chair_startDate <- NA
+      chair_endDate <- NA
+      observation <- data.frame(full_name = ListAs,
+                                House = House,
+                                member_id = member_id,
+                                committee_name = committee_name,
+                                start_date = start_date,
+                                end_date = end_date,
+                                chair_startDate = chair_startDate,
+                                chair_endDate = chair_endDate,
+                                committee_id = committee_id)
+      if (i==1 && j==1) {
+        out <- observation
+      } else {
+        out <- rbind(out, observation)
+      }
+    } 
+  }
+ }
 
+#######################
+# clean the dataframe
+# create committee
+#######################
+df <- out
+rownames(df) <- c()
+df_a <- df %>%
+  select(committee_name, committee_id, House) %>%
+  group_by(committee_name, House) %>%
+  count()
 
-
-
-
-
+df_b <- df %>%
+  select(committee_name, committee_id) %>%
+  mutate(committee_id = as.numeric(committee_id)) %>%
+  unique %>%
+  na.omit()
+rownames(df_b) <- c()
 
 
 
