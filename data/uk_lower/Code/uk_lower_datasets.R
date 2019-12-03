@@ -4,7 +4,9 @@
 # (2) Constituencies
 # (3) Divisions
 # (4) Written Answers
-# (5) Written Questions
+# (5) Oral Questions
+# (6) Written Questions
+# (7) Written Statements
 
 #####################
 # load libraries
