@@ -79,12 +79,18 @@ result$shortURL <- gsub(".*/","", result$url)
 result$shortSession <- paste("20", gsub("20","", result$session), sep="")
 result$newURL <- paste("https://services.parliament.uk/Bills/", result$shortSession, "/", result$shortURL, sep="")
 
+# remove all rows that don't have bill title
+result <- result[which(result$bill_title!=""), ]
+
+# find only unique cases and download html
+uniqueResults <- result %>% distinct(bill_title, .keep_all = T)
+
+
 # loop over pages and download
-for(i in 1:nrow(result)) {
-  download_html(result[i,"newURL"], file = paste("htmls/", gsub(" ","_", gsub("[^[:alnum:] ]", "", result[i,"bill_title"])), ".html", sep=""))
+for(i in 1:nrow(uniqueResults)) {
+  tryCatch({
+    download_html(uniqueResults[i,"newURL"], file = paste("htmls/", gsub(" ","_", gsub("[^[:alnum:] ]", "", uniqueResults[i,"bill_title"])), ".html", sep=""))
+    print(i)
+  }, warnings =function(e) print(paste(file, 'no URL')))
+  
 }
-
-
-
-
-
