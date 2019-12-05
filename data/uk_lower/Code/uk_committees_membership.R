@@ -126,7 +126,38 @@ df_b <- df %>%
   mutate(committee_id = as.numeric(committee_id)) %>%
   unique %>%
   na.omit()
+df_b$committee_number <- df_b$committee_id
 rownames(df_b) <- c()
+df_b$observation_number <- rownames(df_b)
+
+df_b$committee_path <- paste(df_b$chamber_path,"/committee-",df_b$committee_number,sep="") 
+df_b$observation_path <- paste(df_b$committee_path,"/observation-",df_b$observation_number,sep="")
+
+uk_committees <- df_a %>%
+  select(observation_path,
+         # chamber_path,
+         committee_path,
+         observation_number,
+         # chamber_number,
+         committee_number,
+         committee_name)
+
+setwd('~/Documents/GitHub/CompLegFall2019/data/uk_lower/Output')
+write.csv(uk_committees, "uk_committees.csv")
+
+###############################
+# create committee membership
+###############################
+df <- out
+rownames(df) <- c()
+df_aa <- df %>%
+  mutate(title = !is.na(chair_startDate)) %>%
+  unique()
+df_aa$title[df_aa$title==TRUE] <- "Chair"
+df_aa$title[df_aa$title==FALSE] <- "Member"
+df_aa$end_date[df_aa$end_date=="true"] <- NA
+
+df
 
 
 
