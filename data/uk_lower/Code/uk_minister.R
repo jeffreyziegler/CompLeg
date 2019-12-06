@@ -1,0 +1,197 @@
+############################
+# detach and load packages
+############################
+# remove objects
+rm(list=ls())
+# detach all libraries
+detachAllPackages <- function() {
+  basic.packages <- c("package:stats","package:graphics","package:grDevices","package:utils","package:datasets","package:methods","package:base")
+  package.list <- search()[ifelse(unlist(gregexpr("package:",search()))==1,TRUE,FALSE)]
+  package.list <- setdiff(package.list,basic.packages)
+  if (length(package.list)>0)  for (package in package.list) detach(package, character.only=TRUE)
+}
+detachAllPackages()
+
+# load libraries
+pkgTest <- function(pkg){
+  new.pkg <- pkg[!(pkg %in% installed.packages()[, "Package"])]
+  if (length(new.pkg)) 
+    install.packages(new.pkg, dependencies = TRUE)
+  sapply(pkg, require, character.only = TRUE)
+}
+
+lapply(c("stringr", "dplyr", "plyr", "tidyverse", "rvest", "zoo", "XML", "tidyr", "lubridate"), pkgTest)
+
+##########################
+# set working directory 
+# import dataset
+# create raw dataset
+##########################
+# set working directory
+setwd('~/Documents/GitHub/CompLegFall2019/data/uk_lower/raw_characteristics/')
+
+# read in dataset
+files <- list.files(pattern="*.xml", full.names=TRUE, recursive=FALSE)
+
+# to list
+# if you want more information, just unmute the other lines of code and change the "ToDataFrame" to "ToList" 
+# committees <- xmlToList(xmlParse(files[1]))
+# constituencies <- xmlToDataFrame(files[2])
+# experiences <- xmlToDataFrame(files[3])
+# test <- xmlToDataFrame(files[4])
+governmentPosts <- xmlToList(files[4])
+# interests <- xmlToDataFrame(files[5])
+# oppositionPosts <- xmlToDataFrame(files[6])
+# parliamentaryPosts <- xmlToDataFrame(files[7])
+# parties <- xmlToDataFrame(files[8]) 
+# staff <- xmlToDataFrame(files[9]) 
+
+
+##################################
+# make the dataframe that we want 
+##################################
+nullToNA <- function(x) {
+  if(is.null(x)){
+    x <- NA
+  } else {
+    x <- x
+  }
+}
+
+
+for (i in 1:length(governmentPosts)) {
+  ListAs <- governmentPosts[[i]]$ListAs
+  LayingMinisterName <- governmentPosts[[i]]$LayingMinisterName
+  House <- governmentPosts[[i]]$House
+  member_number <- governmentPosts[[i]][[".attrs"]]["Member_Id"]
+  member_from <- governmentPosts[[i]]$MemberFrom
+  ListAs <- nullToNA(ListAs)
+  LayingMinisterName <- nullToNA(LayingMinisterName)
+  House <- nullToNA(House)
+  member_number <- nullToNA(member_number)
+  member_from <- nullToNA(member_from)
+  
+  for (j in 1:length(governmentPosts[[i]]$GovernmentPosts)) {
+    name <- governmentPosts[[i]]$GovernmentPosts[[j]]$Name
+    hansard_name <- governmentPosts[[i]]$GovernmentPosts[[j]]$HansardName
+    start_date <- governmentPosts[[i]]$GovernmentPosts[[j]]$StartDate
+    end_date <- governmentPosts[[i]]$GovernmentPosts[[j]]$EndDate
+    note <- governmentPosts[[i]]$GovernmentPosts[[j]]$Note
+    end_note <- governmentPosts[[i]]$GovernmentPosts[[j]]$EndNote
+    unpaid <- governmentPosts[[i]]$GovernmentPosts[[j]]$IsUnpaid
+    joint <- governmentPosts[[i]]$GovernmentPosts[[j]]$IsJoint
+    email <- governmentPosts[[i]]$GovernmentPosts[[j]]$Email
+    ministry_number <- governmentPosts[[i]]$GovernmentPosts[[j]][[".attrs"]]["Id"]
+    name <- nullToNA(name)
+    hansard_name <- nullToNA(hansard_name)
+    start_date <- nullToNA(start_date)
+    end_date <- nullToNA(end_date)
+    note <- nullToNA(note)
+    end_note <- nullToNA(end_note)
+    unpaid <- nullToNA(unpaid)
+    joint <- nullToNA(joint)
+    email <- nullToNA(email)
+    ministry_number <- nullToNA(ministry_number)
+    
+    observation <- data.frame(full_name = ListAs,
+                              LayingMinisterName = LayingMinisterName,
+                              House = House,
+                              member_number = member_number,
+                              constituency = member_from,
+                              title = name,
+                              hansard_title = hansard_name,
+                              start_date = start_date,
+                              end_date = end_date,
+                              note = note,
+                              end_note = end_note,
+                              unpaid = unpaid,
+                              joint = joint,
+                              email = email,
+                              ministry_number = ministry_number)
+    if (i==1 && j==1) {
+      out <- observation
+    } else {
+      out <- rbind(out, observation)
+    }
+  }
+}
+
+#########################
+# clean up the dataset
+#########################
+df <- out
+df_a <- subset(df, !is.na(title))
+
+df_b <- df_a %>%
+  separate(full_name, c("last_name", "first_name"), ", ")
+df_b$full_name <- paste(df_b$first_name, df_b$last_name)
+
+df_b$start_date <- gsub("T00:00:00","",df_b$start_date)
+df_b$end_date <- gsub("T00:00:00","",df_b$end_date)
+
+# read in and merge with member and constituency
+setwd('~/Documents/GitHub/CompLegFall2019/data/uk_lower/Committee')
+membership <- read.csv("uk_lower_members.csv")
+
+colnames(df_c)
+df_c <- merge(df_b, membership, by=c("first_name", "last_name"), all.x=T) %>%
+  select(first_name,
+         last_name,
+         LayingMinisterName,
+         House,
+         member_number.y,
+         constituency,
+         title,
+         hansard_title,
+         start_date.x,
+         end_date.x,
+         note,
+         end_note,
+         unpaid,
+         joint,
+         email,
+         full_name.x,
+         chamber_number,
+         constituency_ID)
+
+colnames(df_c) <- c("first_name","last_name","laying_minister_name","chamber","member_number","constituency","title",
+                    "hansard_title","start_date","end_date","note","end_note","unpaid","joint","email","full_name",
+                    "chamber_number","constituency_path")
+
+df_c <- df_c[order(as.numeric(df_c$chamber_number), as.numeric(df_c$member_number)), ]
+rownames(df_c) <- c()
+df_c$observation_number <- rownames(df_c)
+
+df_c$chamber_path <- paste("/chamber-",df_c$chamber_number,sep="")
+df_c$member_path <- paste(df_c$chamber_path,"/member-",df_c$member_number,sep="") 
+df_c$observation_path <- paste(df_c$member_path,"/observation-",df_c$observation_number,sep="") 
+
+uk_minister <- df_c %>%
+  select(observation_path,
+         chamber_path,
+         member_path,
+         constituency_path,
+         observation_number,
+         chamber_number,
+         member_number,
+         full_name,
+         first_name,
+         last_name,
+         laying_minister_name,
+         chamber,
+         constituency,
+         title,
+         hansard_title,
+         start_date,
+         end_date,
+         end_note,
+         unpaid,
+         joint)
+
+# write output
+setwd('~/Documents/GitHub/CompLegFall2019/data/uk_lower/Output')
+write.csv(uk_minister, "uk_minister.csv")  
+  
+  
+  
+
